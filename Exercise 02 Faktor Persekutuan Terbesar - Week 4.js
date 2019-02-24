@@ -1,29 +1,23 @@
 function fpb(angka1, angka2) {
   var result = 0;
   var temp = 0;
-  // jika ada case angka 1 lebih besar dari angka 2
   if(angka1 > angka2){
-    temp = angka1
-    for (i = 0; i < temp; i++){
-      if (angka1%i === 0 && angka2%i === 0){
-        result = i
-      }
-    }
-  }
-  else if(angka1 < angka2){
     temp = angka2
-    // jika ada case angka 1 lebih besar dari angka 2
-    for (j = 0; j < temp; j++){
-      if (angka1%j === 0 && angka2%j === 0){
-        result = j
-      }
+  }else{
+    temp = angka1
+  }
+
+  for (var i = 0; i <= temp; i++){
+    if (angka1%i === 0 && angka2%i === 0){
+      result = i
     }
   }
+
   return result
 }
 
 // TEST CASES
-console.log(fpb(12, 16)); // 4
+console.log(fpb(16, 16)); // 4
 console.log(fpb(50, 40)); // 10
 console.log(fpb(22, 99)); // 11
 console.log(fpb(24, 36)); // 12

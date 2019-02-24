@@ -32,11 +32,11 @@ function shoppingTime(memberId, money) {
     listPurchased: list,
     changeMoney:change
   }
-  // return obj
+  return obj
 }
 
 // TEST CASES
-// console.log(shoppingTime('1820RzKrnWn08', 2475000));
+console.log(shoppingTime('1820RzKrnWn08', 2475000));
   //{ memberId: '1820RzKrnWn08',
   // money: 2475000,
   // listPurchased:

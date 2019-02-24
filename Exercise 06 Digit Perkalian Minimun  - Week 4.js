@@ -1,37 +1,21 @@
-function cariModus(arr) {
-var mostRepeat = 0;
-var modus = 0;
-  var repeatNumber = 0;
-  for (var i = 0; i < arr.length; i++){
-    var counter = 0;
-    for(var j = 0; j < arr.length; j++){
-      // console.log('index i ke ',i, ',index j ke ',j, 'dengan arr[i], ',arr[j], 'dan arr[j] ',arr[j])
-      if ( arr[i] === arr[j] && i !== j){
-        counter++;
-        if(counter > mostRepeat){
-          mostRepeat = counter
-          modus = i
-        }
-      }
+function digitPerkalianMinimum(angka) {
+  var arr = [];
+  var digit = Math.sqrt(angka)
+  for (var i = 1; i <= digit; i++){
+    var str = ''
+    if (angka%i===0){
+      str = str + i;
+      str = str + angka/i;
+      arr.push(str);
     }
+    // console.log(str)
   }
-  if (mostRepeat === 0){
-    return -1
-  }
-  var num = 0;
-  for (var k = 0; k < arr.length; k++){
-    num = num + arr[k]
-      // console.log(arr[k])
-    if (num/arr.length === arr[k]){
-      return -1;
-    }
-  }
-  return arr[modus]
+  return arr[arr.length-1].length
 }
 
 // TEST CASES
-console.log(cariModus([10, 4, 5, 2, 4])); // 4
-console.log(cariModus([5, 10, 10, 6, 5])); // 5
-console.log(cariModus([10, 3, 1, 2, 5])); // -1
-console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
-console.log(cariModus([7, 7, 7, 7, 7])); // -1
+console.log(digitPerkalianMinimum(24)); // 2
+console.log(digitPerkalianMinimum(90)); // 3
+console.log(digitPerkalianMinimum(20)); // 2
+console.log(digitPerkalianMinimum(179)); // 4
+console.log(digitPerkalianMinimum(1)); // 2
