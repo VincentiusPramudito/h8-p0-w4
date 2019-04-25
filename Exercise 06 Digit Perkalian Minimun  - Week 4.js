@@ -1,6 +1,8 @@
 function digitPerkalianMinimum(angka) {
+
   var arr = [];
   var digit = Math.sqrt(angka)
+
   for (var i = 1; i <= digit; i++){
     var str = ''
     if (angka%i===0){
@@ -8,7 +10,6 @@ function digitPerkalianMinimum(angka) {
       str = str + angka/i;
       arr.push(str);
     }
-    // console.log(str)
   }
   return arr[arr.length-1].length
 }

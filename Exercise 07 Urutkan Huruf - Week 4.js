@@ -16,6 +16,17 @@ function urutkanAbjad(str) {
   return result
 }
 
+
+
+//OR
+
+//function urutkanAbjad(str) {
+//  var spread = str.split('');
+//  var sorting = spread.sort();
+//  var regroup = sorting.join('');
+//  return regroup
+//}
+
 // TEST CASES
 console.log(urutkanAbjad('hello')); // 'ehllo'
 console.log(urutkanAbjad('truncate')); // 'acenrttu'

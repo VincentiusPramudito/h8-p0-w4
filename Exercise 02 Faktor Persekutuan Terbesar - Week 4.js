@@ -1,4 +1,5 @@
 function fpb(angka1, angka2) {
+
   var result = 0;
   var temp = 0;
   if(angka1 > angka2){
@@ -12,7 +13,6 @@ function fpb(angka1, angka2) {
       result = i
     }
   }
-
   return result
 }
 

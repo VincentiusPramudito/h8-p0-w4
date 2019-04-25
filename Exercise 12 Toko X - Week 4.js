@@ -6,7 +6,7 @@ function countProfit(shoppers) {
 ]
 
   var result = []
-  if (shoppers.length!==0){
+  if (shoppers.length > 0){
     for (var i = 0 ; i < listBarang.length; i++){
       var product = listBarang[i][0]
       var price = listBarang[i][1]

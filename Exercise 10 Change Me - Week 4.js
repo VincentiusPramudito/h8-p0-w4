@@ -17,8 +17,6 @@ function changeMe(arr) {
     console.log(i + 1 + '.' + arr[i][0] + ' ' + arr[i][1] + ':')
     console.log(obj);
   }
-
-  
 }
 
 // TEST CASES

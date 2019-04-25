@@ -1,17 +1,25 @@
 function checkAB(num) {
-  var hurufA;
-  var hurufB;
-  for (i = 0; i < num.length; i++){
+  var cekA = [];
+  var cekB = [];
+
+  for(var i = 0; i < num.length; i++){
     if(num[i] === 'a'){
-      hurufA = i
-      // console.log(hurufA)
-    }
-    else if(num[i] === 'b'){
-      hurufB = i
-      // console.log(hurufB)
+      cekA.push(i)
+    }else if(num[i] === 'b'){
+      cekB.push(i)
     }
   }
-  return hurufA - hurufB === 4 || hurufB - hurufA === 4
+  console.log(cekA, cekB)
+
+  for(var j = 0; j < cekA.length; j++){
+    for(var k = 0; k < cekB.length; k++){
+      var count = Math.abs(cekA[j] - cekB[k])
+      if(count === 4){
+        return true
+      }
+    }
+  }
+  return false
 }
 
 // TEST CASES

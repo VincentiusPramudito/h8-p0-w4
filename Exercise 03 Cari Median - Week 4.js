@@ -1,14 +1,9 @@
 function cariMedian(arr) {
-  var result = 0;
-  for (i = 0; i < arr.length; i++){
-    if(arr.length%2 === 0){
-      result = (arr[arr.length/2-1] + arr[arr.length/2])/2
-    }
-    if (arr.length%2 !== 0){
-      result = arr[Math.ceil(arr.length/2-1)]
-    }
+  if(arr.length%2 === 1){
+    return arr[Math.floor(arr.length/2)]
+  }else{
+    return (arr[Math.floor(arr.length/2)]+arr[Math.floor(arr.length/2)-1])/2
   }
-  return result
 }
 
 // TEST CASES

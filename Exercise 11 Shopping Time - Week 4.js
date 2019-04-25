@@ -1,36 +1,37 @@
+var data = [
+    ['Sepatu Stacattu',1500000],
+    ['Baju Zoro',500000],
+    ['Baju H&N',250000],
+    ['Sweater Uniklooh',175000],
+    ['Casing Handphone',50000]
+]
+
 function shoppingTime(memberId, money) {
-  var obj = {
+  var obj = {};
+  var listPurchased = [];
 
-  }
-  var listPurchased = [
-
-    ['Sepatu Stacattu', 1500000],
-    ['Baju Zoro', 500000],
-    ['Baju H&N', 250000],
-    ['Sweater Uniklooh', 175000],
-    ['Casing Handphone', 50000]
-
-  ]
-  if(memberId === ''|| memberId === undefined){
-    return 'Mohon maaf, toko X hanya berlaku untuk member saja'
-  }
-  else if ( money < 50000){
-    return 'Mohon maaf, uang tidak cukup'
-  }
-  var change = money;
-  var list = []
-  for (var i = 0; i < listPurchased.length; i++){
-    if(change >= listPurchased[i][1]){
-      change = change - listPurchased[i][1]
-      list.push(listPurchased[i][0])
-    }
-    // console.log('sekarang index ke ',i,'barangnya =', listPurchased[i])
-  }
   obj = {
     memberId: memberId,
-    money: money,
-    listPurchased: list,
-    changeMoney:change
+    money: money
+  }
+
+  var change = money;
+  for(var i = 0; i < data.length; i++){
+    if(change >= data[i][1]){
+      change = change - data[i][1]
+      listPurchased.push(data[i][0])
+    }
+  }
+  
+  obj['listPurchased'] = listPurchased
+  obj['changeMoney'] = change
+
+  if(memberId === '' || money === undefined){
+    return 'Mohon maaf toko X hanya berlaku untuk member saja'
+  }
+
+  if(listPurchased.length < 1){
+    return 'Mohon maaf uang tidak cukup'
   }
   return obj
 }

@@ -1,35 +1,88 @@
-function naikAngkot(arrPenumpang) {
-  rute = ['A', 'B', 'C', 'D', 'E', 'F'];
+function highestScore (students) {
+  var result = {}
   
-  var start = 0;
-  var finish = 0;
-  var result = [];
-  var distance = [];
-  var biaya = 0;
-  for(var i = 0; i < arrPenumpang.length; i++){
-    for(var j = 0; j < rute.length; j++){
-      if(arrPenumpang[i][1] === rute[j]){
-        start = j
-      }else if(arrPenumpang[i][2] === rute[j]){
-        finish = j
+  for (var i = 0; i <students.length; i++){
+    if (!result[students[i]['class']]){
+      result[students[i]['class']] = {
+        name: students[i]['name'],
+        score: students[i]['score']
       }
     }
-    distance = Math.abs(finish - start)
-    biaya = 2000 * distance
-    var ticket = {
-      penumpang: arrPenumpang[i][0],
-      naikDari: arrPenumpang[i][1],
-      tujuan: arrPenumpang[i][2],
-      bayar: biaya
+    if (result[students[i]['class']]['score']<students[i]['score']){
+      result[students[i]['class']] = {
+        name: students[i]['name'],
+        score: students[i]['score']
+      }
     }
-    result.push(ticket);
+
+  
   }
   return result
 }
 
-//TEST CASE
-console.log(naikAngkot([['Dimitri', 'B', 'F'], ['Icha', 'A', 'B']]));
-// [ { penumpang: 'Dimitri', naikDari: 'B', tujuan: 'F', bayar: 8000 },
-//   { penumpang: 'Icha', naikDari: 'A', tujuan: 'B', bayar: 2000 } ]
+// TEST CASE
+console.log(highestScore([
+  {
+    name: 'Dimitri',
+    score: 0,
+    class: 'foxes'
+  },
+  {
+    name: 'Alexei',
+    score: 85,
+    class: 'wolves'
+  },
+  {
+    name: 'Sergei',
+    score: 74,
+    class: 'foxes'
+  },
+  {
+    name: 'Anastasia',
+    score: 78,
+    class: 'wolves'
+  }
+]));
 
-console.log(naikAngkot([])); //[]
+// {
+//   foxes: { name: 'Dimitri', score: 90 },
+//   wolves: { name: 'Alexei', score: 85 }
+// }
+
+
+console.log(highestScore([
+  {
+    name: 'Alexander',
+    score: 100,
+    class: 'foxes'
+  },
+  {
+    name: 'Alisa',
+    score: 76,
+    class: 'wolves'
+  },
+  {
+    name: 'Vladimir',
+    score: 92,
+    class: 'foxes'
+  },
+  {
+    name: 'Albert',
+    score: 71,
+    class: 'wolves'
+  },
+  {
+    name: 'Viktor',
+    score: 80,
+    class: 'tigers'
+  }
+]));
+
+// {
+//   foxes: { name: 'Alexander', score: 100 },
+//   wolves: { name: 'Alisa', score: 76 },
+//   tigers: { name: 'Viktor', score: 80 }
+// }
+
+
+console.log(highestScore([])); //{}

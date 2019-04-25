@@ -1,5 +1,5 @@
 function angkaPrima(angka) {
-  // dipilih angka 2 karena angka 0 jika dibagi bilangan tidak terdefinisi, dan jika dibagi 1 semua bilangan habis dibagi 1
+
   if(angka < 2){
     return false
   }
@@ -7,10 +7,42 @@ function angkaPrima(angka) {
       if (angka % i === 0){
         return false
       }
-      
     }
     return true
   }
+
+//atau
+
+function angkaPrima(angka) {
+     if(angka < 2){
+        return false
+      }
+    var isPrima = true;
+    var counter = 2;
+    while(isPrima && counter<angka){
+        if(angka%counter === 0 ){
+            isPrima = false;
+        }
+        counter++;
+    }
+    return isPrima;
+}
+
+// atau
+
+function angkaPrima(angka) {
+  if(angka < 2){
+    return false
+  }
+  i = 2;
+  while(i < angka){
+    if(angka%i === 0){
+      return false
+    }
+    i++
+  }
+  return true
+}
   
   // TEST CASES
   console.log(angkaPrima(3)); // true

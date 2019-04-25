@@ -1,20 +1,36 @@
 function tukarBesarKecil(kalimat) {
-  var output = [];
-  var newWord;
-  var splitWord = kalimat.split('')
-  // console.log(splitWord)
+  var result = '';
+  var smallKalimat = kalimat.toLowerCase()
 
-  for ( i = 0; i < splitWord.length; i++){
-    if( splitWord[i] === splitWord[i].toUpperCase()){
-      newWord = splitWord[i].toLowerCase()
+  for(var i = 0; i < kalimat.length; i++){
+    if(kalimat[i] === smallKalimat[i]){
+      result += kalimat[i].toUpperCase()
+    }else if(kalimat[i] === smallKalimat[i].toUpperCase()){
+      result += kalimat[i].toLowerCase()
     }
-    else {
-      newWord = splitWord[i].toUpperCase()
-    }
-    output.push(newWord)
   }
- return output.join('')
+  return result
 }
+
+////ATAU
+
+// function tukarBesarKecil(kalimat) {
+//   var output = [];
+//   var newWord;
+//   var splitWord = kalimat.split('')
+//   // console.log(splitWord)
+
+//   for ( i = 0; i < splitWord.length; i++){
+//     if( splitWord[i] === splitWord[i].toUpperCase()){
+//       newWord = splitWord[i].toLowerCase()
+//     }
+//     else {
+//       newWord = splitWord[i].toUpperCase()
+//     }
+//     output.push(newWord)
+//   }
+//  return output.join('')
+// }
 
 // TEST CASES
 console.log(tukarBesarKecil('Hello World')); // "hELLO wORLD"
